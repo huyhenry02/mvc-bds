@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Chung cư",
+        "description": "Các dự án thuộc chung cư"
+    },
+    {
+        "id": 2,
+        "name": "Nhà đất",
+        "description": "Các dự án thuộc nhà đất"
+    }
+]

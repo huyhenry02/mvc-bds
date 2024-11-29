@@ -1,0 +1,32 @@
+[
+    {
+        "id":  1,
+        "full_name": "Quản trị viên",
+        "email":  "admin@gmail.com",
+        "password": "1",
+        "phone_number":  "0111222333",
+        "address": "Công ty Bất Động Sản HLC",
+        "date_of_birth":  "2003-02-13",
+        "role": "admin"
+    },
+    {
+        "id":  2,
+        "full_name": "Nguyễn Văn A",
+        "email":  "nguyenvana@gmail.com",
+        "password": "1",
+        "phone_number":  "0111222334",
+        "address": "Thành phố Hà Nội",
+        "date_of_birth":  "2003-02-13",
+        "role": "customer"
+    },
+    {
+        "id":  3,
+        "full_name": "Trần Văn B",
+        "email":  "tranvanb@gmail.com",
+        "password": "1",
+        "phone_number":  "0111222335",
+        "address": "Thành phố Hồ Chí Minh",
+        "date_of_birth":  "2003-02-13",
+        "role": "customer"
+    }
+]
