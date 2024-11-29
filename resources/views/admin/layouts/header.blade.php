@@ -1,7 +1,7 @@
 <div class="main-header">
     <div class="main-header-logo">
         <!-- Logo Header -->
-        <div class="logo-header" data-background-color="blue2">
+        <div class="logo-header" data-background-color="orange">
             <a href="#" class="logo">
                 <img
                     src="/assets/img/kaiadmin/logo (537 x 80 px) (537 x 80 px).png"
@@ -27,7 +27,7 @@
     <!-- Navbar Header -->
     <nav
         class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
-        data-background-color="blue2"
+        data-background-color="orange"
     >
         <div class="container-fluid">
             <nav
@@ -105,7 +105,7 @@
                             </li>
                             <li>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('auth.postLogout') }}">Logout</a>
+                                <a class="dropdown-item" href="">Logout</a>
                             </li>
                         </div>
                     </ul>

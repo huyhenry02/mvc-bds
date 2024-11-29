@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Admin Daily care</title>
+    <title>Quản lý hệ thống</title>
     <meta
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
         name="viewport"
@@ -44,18 +44,11 @@
 <body>
 <div class="wrapper">
     <!-- Sidebar -->
-    <div class="sidebar" data-background-color="blue">
+    <div class="sidebar" data-background-color="orange">
         <div class="sidebar-logo">
             <!-- Logo Header -->
-            <div class="logo-header" data-background-color="blue">
-                <a href="#" class="logo">
-                    <img
-                        src="/assets/img/kaiadmin/logo-v2.png"
-                        alt="navbar brand"
-                        class="navbar-brand"
-                        height="50"
-                    />
-                </a>
+            <div class="logo-header" data-background-color="orange">
+
                 <div class="nav-toggle">
                     <button class="btn btn-toggle toggle-sidebar">
                         <i class="gg-menu-right"></i>
@@ -70,12 +63,12 @@
             </div>
             <!-- End Logo Header -->
         </div>
-        @include('layouts.sidebar')
+        @include('admin.layouts.sidebar')
     </div>
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        @include('layouts.header')
+        @include('admin.layouts.header')
         <div class="container">
             <div class="page-inner">
                @yield('content')
