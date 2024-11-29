@@ -33,6 +33,10 @@
             <nav
                 class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
             >
+                <a href="{{ route('customer.showAbout') }}" class="btn btn-light">
+                    Giao diện người dùng
+                    <i class="fa fa-arrow-right ms-2"></i>
+                </a>
             </nav>
 
             <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">

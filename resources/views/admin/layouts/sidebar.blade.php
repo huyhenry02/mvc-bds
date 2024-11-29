@@ -8,7 +8,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Quản lý người dùng</p>
                     <span class="caret"></span>
                 </a>
@@ -34,7 +34,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Quản lý dự án</p>
                     <span class="caret"></span>
                 </a>
@@ -60,7 +60,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Quản lý chủ đầu tư</p>
                     <span class="caret"></span>
                 </a>
@@ -86,7 +86,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Quản lý phân khu</p>
                     <span class="caret"></span>
                 </a>
@@ -112,7 +112,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Quản lý khu đất</p>
                     <span class="caret"></span>
                 </a>
@@ -138,7 +138,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Quản lý giao dịch</p>
                     <span class="caret"></span>
                 </a>
@@ -159,7 +159,7 @@
                     class="collapsed"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-home"></i>
+                    <i class="fas fa-bars"></i>
                     <p>Thống kê, báo cáo</p>
                     <span class="caret"></span>
                 </a>
