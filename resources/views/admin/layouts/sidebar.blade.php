@@ -12,7 +12,7 @@
                     <p>Quản lý người dùng</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="dashboard">
+                <div id="dashboard">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('user.showIndex') }}">
@@ -38,7 +38,7 @@
                     <p>Quản lý dự án</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="project">
+                <div id="project">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('project.showIndex') }}">
@@ -64,7 +64,7 @@
                     <p>Quản lý chủ đầu tư</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="investor">
+                <div id="investor">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('investor.showIndex') }}">
@@ -90,7 +90,7 @@
                     <p>Quản lý phân khu</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="zone">
+                <div id="zone">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('zone.showIndex') }}">
@@ -116,7 +116,7 @@
                     <p>Quản lý khu đất</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="plot">
+                <div id="plot">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('plot.showIndex') }}">
@@ -142,16 +142,11 @@
                     <p>Quản lý giao dịch</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="transaction">
+                <div id="transaction">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('transaction.showIndex') }}">
                                 <span class="sub-item">Danh sách giao dịch</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('transaction.showCreate') }}">
-                                <span class="sub-item">Thêm mới giao dịch</span>
                             </a>
                         </li>
                     </ul>
@@ -168,7 +163,7 @@
                     <p>Thống kê, báo cáo</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse" id="statistic">
+                <div id="statistic">
                     <ul class="nav nav-collapse">
                         <li>
                             <a href="{{ route('report.showReportUser') }}">

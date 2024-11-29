@@ -4,13 +4,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\PlotController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\InvestorController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\IndexCustomerController;
 
 Route::get('/', function () {
-    return view('admin.layouts.main');
+    return view('customer.layouts.main');
+});
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.showLogin');
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.showRegister');
 });
 Route::group([
     'prefix' => 'admin'
@@ -65,7 +73,14 @@ Route::group([
         'prefix' => 'transaction'
     ], function () {
         Route::get('/', [TransactionController::class, 'showIndex'])->name('transaction.showIndex');
-        Route::get('/create', [TransactionController::class, 'showCreate'])->name('transaction.showCreate');
-        Route::get('/update', [TransactionController::class, 'showUpdate'])->name('transaction.showUpdate');
     });
+});
+Route::group([
+    'prefix' => 'customer'
+], function () {
+    Route::get('/index', [IndexCustomerController::class, 'showIndex'])->name('customer.showIndex');
+    Route::get('/projects', [IndexCustomerController::class, 'showProjects'])->name('customer.showProjects');
+    Route::get('/project-detail', [IndexCustomerController::class, 'showProjectDetail'])->name('customer.showProjectDetail');
+    Route::get('/service', [IndexCustomerController::class, 'showService'])->name('customer.showService');
+    Route::get('/about', [IndexCustomerController::class, 'showAbout'])->name('customer.showAbout');
 });

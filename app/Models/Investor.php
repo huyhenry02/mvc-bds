@@ -8,6 +8,7 @@ class Investor extends Model
 {
     protected $table = 'investors';
     protected $fillable = [
+        'full_name',
         'email',
         'phone_number',
         'description',

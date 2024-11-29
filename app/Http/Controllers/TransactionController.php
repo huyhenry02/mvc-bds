@@ -13,14 +13,4 @@ class TransactionController extends Controller
     {
         return view('admin.page.transaction.index');
     }
-
-    public function showCreate(): View|Factory|Application
-    {
-        return view('admin.page.transaction.create');
-    }
-
-    public function showUpdate(): View|Factory|Application
-    {
-        return view('admin.page.transaction.update');
-    }
 }
