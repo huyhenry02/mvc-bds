@@ -12,13 +12,17 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\IndexCustomerController;
 
 Route::get('/', function () {
-    return view('customer.layouts.main');
+    return  redirect()->route('customer.showIndex');
 });
 Route::group([
     'prefix' => 'auth'
 ], function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.showLogin');
     Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.showRegister');
+
+    Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
+    Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
 Route::group([
     'prefix' => 'admin'
@@ -36,7 +40,11 @@ Route::group([
     ], function () {
         Route::get('/', [InvestorController::class, 'showIndex'])->name('investor.showIndex');
         Route::get('/create', [InvestorController::class, 'showCreate'])->name('investor.showCreate');
-        Route::get('/update', [InvestorController::class, 'showUpdate'])->name('investor.showUpdate');
+        Route::get('/update/{investor}', [InvestorController::class, 'showUpdate'])->name('investor.showUpdate');
+
+        Route::post('/create', [InvestorController::class, 'postCreate'])->name('investor.postCreate');
+        Route::post('/update/{investor}', [InvestorController::class, 'postUpdate'])->name('investor.postUpdate');
+        Route::get('/delete/{investor}', [InvestorController::class, 'delete'])->name('investor.delete');
     });
 
     Route::group([
@@ -50,7 +58,11 @@ Route::group([
     ], function () {
         Route::get('/', [ZoneController::class, 'showIndex'])->name('zone.showIndex');
         Route::get('/create', [ZoneController::class, 'showCreate'])->name('zone.showCreate');
-        Route::get('/update', [ZoneController::class, 'showUpdate'])->name('zone.showUpdate');
+        Route::get('/update{zone}', [ZoneController::class, 'showUpdate'])->name('zone.showUpdate');
+
+        Route::post('/create', [ZoneController::class, 'postCreate'])->name('zone.postCreate');
+        Route::post('/update/{zone}', [ZoneController::class, 'postUpdate'])->name('zone.postUpdate');
+        Route::get('/delete/{zone}', [ZoneController::class, 'delete'])->name('zone.delete');
     });
 
     Route::group([
@@ -58,7 +70,12 @@ Route::group([
     ], function () {
         Route::get('/', [PlotController::class, 'showIndex'])->name('plot.showIndex');
         Route::get('/create', [PlotController::class, 'showCreate'])->name('plot.showCreate');
-        Route::get('/update', [PlotController::class, 'showUpdate'])->name('plot.showUpdate');
+        Route::get('/update/{plot}', [PlotController::class, 'showUpdate'])->name('plot.showUpdate');
+        Route::get('/get-zones-of-project', [PlotController::class, 'getZonesOfProject'])->name('plot.getZonesOfProject');
+
+        Route::post('/create', [PlotController::class, 'postCreate'])->name('plot.postCreate');
+        Route::post('/update/{plot}', [PlotController::class, 'postUpdate'])->name('plot.postUpdate');
+        Route::get('/delete/{plot}', [PlotController::class, 'delete'])->name('plot.delete');
     });
 
     Route::group([
@@ -66,7 +83,12 @@ Route::group([
     ], function () {
         Route::get('/', [ProjectController::class, 'showIndex'])->name('project.showIndex');
         Route::get('/create', [ProjectController::class, 'showCreate'])->name('project.showCreate');
-        Route::get('/update', [ProjectController::class, 'showUpdate'])->name('project.showUpdate');
+        Route::get('/update/{project}', [ProjectController::class, 'showUpdate'])->name('project.showUpdate');
+        Route::get('/get-districts', [ProjectController::class, 'getDistricts'])->name('project.getDistricts');
+
+        Route::post('/create', [ProjectController::class, 'postCreate'])->name('project.postCreate');
+        Route::post('/update/{project}', [ProjectController::class, 'postUpdate'])->name('project.postUpdate');
+        Route::get('/delete/{project}', [ProjectController::class, 'delete'])->name('project.delete');
     });
 
     Route::group([

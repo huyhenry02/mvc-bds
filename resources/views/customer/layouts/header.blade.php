@@ -13,8 +13,21 @@
                 <li class="nav-item"><a href="{{ route('customer.showService') }}" class="nav-link">Chính sách</a></li>
             </ul>
             <div class="ml-auto">
-                <a href="{{ route('auth.showLogin') }}" class="btn btn-warning">Đăng nhập</a>
-                <a href="{{ route('auth.showRegister') }}" class="btn btn-secondary">Đăng ký</a>
+                @if(auth()->user())
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+                            <i class="fa fa-user mr-2" style="color: black;"></i>
+                            <span class="nav-link">{{ auth()->user()->full_name ?? '' }}</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">Giao dịch của bạn</a>
+                            <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
+                        </div>
+                    </div>
+                @else
+                    <a href="{{ route('auth.showLogin') }}" class="btn btn-primary">Đăng nhập</a>
+                    <a href="{{ route('auth.showRegister') }}" class="btn btn-secondary">Đăng ký</a>
+                @endif
             </div>
         </div>
     </div>

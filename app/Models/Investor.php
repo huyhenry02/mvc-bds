@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Investor extends Model
 {
@@ -13,4 +14,9 @@ class Investor extends Model
         'phone_number',
         'description',
     ];
+
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
+    }
 }

@@ -9,7 +9,8 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('plot.postCreate') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">Thông tin cần lưu</div>
@@ -21,6 +22,9 @@
                                     <label for="title">Dự án <span class="text-danger">*</span></label>
                                     <select class="form-control" id="project_id" name="project_id" required>
                                         <option value="">-- Chọn dự án --</option>
+                                        @foreach( $projects as $project)
+                                            <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -104,17 +108,17 @@
                                 <div class="form-group">
                                     <label for="content">Hình ảnh</label>
                                     <div class="row">
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <input type="file" class="form-control" id="sub_image_1" name="sub_image_1"
                                                    accept="image/*"/>
                                             <div id="sub_image_preview_1" class="mt-2"></div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <input type="file" class="form-control" id="sub_image_2" name="sub_image_2"
                                                    accept="image/*"/>
                                             <div id="sub_image_preview_2" class="mt-2"></div>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-3">
                                             <input type="file" class="form-control" id="sub_image_3" name="sub_image_3"
                                                    accept="image/*"/>
                                             <div id="sub_image_preview_3" class="mt-2"></div>
@@ -133,6 +137,26 @@
         </div>
     </div>
     <script>
+        document.getElementById('project_id').addEventListener('change', function () {
+            const projectId = this.value;
+            const zoneSelect = document.getElementById('zone_id');
+
+            zoneSelect.innerHTML = '<option value="">-- Chọn phân khu --</option>';
+
+            if (projectId) {
+                fetch(`/admin/plot/get-zones-of-project?project_id=${projectId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(zone => {
+                            const option = document.createElement('option');
+                            option.value = zone.id;
+                            option.textContent = zone.name;
+                            zoneSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching districts:', error));
+            }
+        });
         function previewImage(input, previewId) {
             const previewContainer = document.getElementById(previewId);
             previewContainer.innerHTML = ''; // Xóa preview cũ

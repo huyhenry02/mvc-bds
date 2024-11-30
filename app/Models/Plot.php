@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Plot extends Model
 {
     protected $table = 'plots';
+    public const STATUS_EMPTY = 'empty';
+    public const STATUS_SOLD = 'sold';
+    public const STATUS_DEPOSITED = 'deposited';
     protected $fillable = [
         'zone_id',
         'name',

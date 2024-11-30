@@ -9,7 +9,8 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('investor.postCreate') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">Thông tin cần lưu</div>
@@ -47,9 +48,9 @@
                         <div class="row mt-3">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="content">Mô tả</label>
+                                    <label for="description">Mô tả</label>
                                     <div class="input-group">
-                                        <textarea class="form-control" id="content" rows="5" name="content"></textarea>
+                                        <textarea class="form-control" id="description" rows="5" name="description"></textarea>
                                     </div>
                                 </div>
                             </div>

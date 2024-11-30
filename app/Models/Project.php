@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Project extends Model
 {
     protected $table = 'projects';
+    public const STATUS_ON_SALE= 'on_sale';
+    public const STATUS_COMPLETED= 'completed';
+    public const STATUS_UPCOMING= 'upcoming';
     protected $fillable = [
         'category_id',
         'name',
@@ -44,5 +48,10 @@ class Project extends Model
     public function investor(): BelongsTo
     {
         return $this->belongsTo(Investor::class);
+    }
+
+    public function zones(): HasMany
+    {
+        return $this->hasMany(Zone::class);
     }
 }

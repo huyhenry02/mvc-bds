@@ -9,7 +9,8 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('project.postCreate') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="card">
                     <div class="card-header">
                         <div class="card-title">Thông tin cần lưu</div>
@@ -27,7 +28,9 @@
                                     <label for="category_id">Loại dự án <span class="text-danger">*</span></label>
                                     <select class="form-control" id="category_id" name="category_id" required>
                                         <option value="">-- Chọn loại dự án --</option>
-                                        <!-- Các tùy chọn lấy từ DB -->
+                                        @foreach( $categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -63,7 +66,9 @@
                                     <label for="city_id">Tỉnh/Thành phố <span class="text-danger">*</span></label>
                                     <select class="form-control" id="city_id" name="city_id" required>
                                         <option value="">-- Chọn tỉnh/thành phố --</option>
-                                        <!-- Các tùy chọn lấy từ DB -->
+                                        @foreach($cities as $city)
+                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -72,7 +77,6 @@
                                     <label for="district_id">Quận/Huyện <span class="text-danger">*</span></label>
                                     <select class="form-control" id="district_id" name="district_id" required>
                                         <option value="">-- Chọn quận/huyện --</option>
-                                        <!-- Các tùy chọn lấy từ DB -->
                                     </select>
                                 </div>
                             </div>
@@ -101,7 +105,9 @@
                                     <label for="investor_id">Chủ đầu tư <span class="text-danger">*</span></label>
                                     <select class="form-control" id="investor_id" name="investor_id" required>
                                         <option value="">-- Chọn chủ đầu tư --</option>
-                                        <!-- Các tùy chọn lấy từ DB -->
+                                        @foreach($investors as $investor)
+                                            <option value="{{ $investor->id }}">{{ $investor->full_name ?? '' }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -144,6 +150,26 @@
     </div>
 
     <script>
+        document.getElementById('city_id').addEventListener('change', function () {
+            const cityId = this.value;
+            const districtSelect = document.getElementById('district_id');
+
+            districtSelect.innerHTML = '<option value="">-- Chọn quận/huyện --</option>';
+
+            if (cityId) {
+                fetch(`/admin/project/get-districts?city_id=${cityId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(district => {
+                            const option = document.createElement('option');
+                            option.value = district.id;
+                            option.textContent = district.name;
+                            districtSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching districts:', error));
+            }
+        });
         function previewImage(event, previewId) {
             const file = event.target.files[0];
             const preview = document.getElementById(previewId);
