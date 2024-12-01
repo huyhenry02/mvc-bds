@@ -20,7 +20,7 @@
                             <span class="nav-link">{{ auth()->user()->full_name ?? '' }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">Giao dịch của bạn</a>
+                            <a class="dropdown-item" href="{{ route('customer.showTransaction') }}">Giao dịch của bạn</a>
                             <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
                         </div>
                     </div>

@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "zone_id": 1,
         "name": "Lô biệt thự A1",
         "size": 300.0,
@@ -15,7 +14,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 2,
         "zone_id": 1,
         "name": "Lô biệt thự A2",
         "size": 280.0,
@@ -30,7 +28,6 @@
         "sub_image_3" : "/customer/images/image_5.jpg"
     },
     {
-        "id": 3,
         "zone_id": 1,
         "name": "Lô biệt thự B1",
         "size": 320.0,
@@ -45,7 +42,6 @@
         "sub_image_3" : "/customer/images/image_6.jpg"
     },
     {
-        "id": 4,
         "zone_id": 1,
         "name": "Lô biệt thự B2",
         "size": 300.0,
@@ -60,7 +56,6 @@
         "sub_image_3" : "/customer/images/image_8.jpg"
     },
     {
-        "id": 5,
         "zone_id": 1,
         "name": "Lô biệt thự C1",
         "size": 310.0,
@@ -75,7 +70,20 @@
         "sub_image_3" : "/customer/images/image_8.jpg"
     },
     {
-        "id": 6,
+        "zone_id": 1,
+        "name": "Lô biệt thự D1",
+        "size": 310.0,
+        "price": 4900000000,
+        "deposit": 1000000000,
+        "specific_address": "Khu biệt thự D, Phân khu Biệt Thự Vườn",
+        "status": "empty",
+        "description": "Lô đất biệt thự góc 2 mặt tiền, gần khu vực yên tĩnh.",
+        "main_image" : "/customer/images/listing-6.jpg",
+        "sub_image_1" : "/customer/images/image_2.jpg",
+        "sub_image_2" : "/customer/images/image_5.jpg",
+        "sub_image_3" : "/customer/images/image_1.jpg"
+    },
+    {
         "zone_id": 2,
         "name": "Lô căn hộ A1",
         "size": 80.0,
@@ -90,7 +98,6 @@
         "sub_image_3" : "/customer/images/image_2.jpg"
     },
     {
-        "id": 7,
         "zone_id": 2,
         "name": "Lô căn hộ A2",
         "size": 75.0,
@@ -105,7 +112,6 @@
         "sub_image_3" : "/customer/images/image_6.jpg"
     },
     {
-        "id": 8,
         "zone_id": 2,
         "name": "Lô căn hộ B1",
         "size": 85.0,
@@ -120,7 +126,6 @@
         "sub_image_3" : "/customer/images/image_8.jpg"
     },
     {
-        "id": 9,
         "zone_id": 2,
         "name": "Lô căn hộ B2",
         "size": 70.0,
@@ -135,7 +140,6 @@
         "sub_image_3" : "/customer/images/image_6.jpg"
     },
     {
-        "id": 10,
         "zone_id": 2,
         "name": "Lô căn hộ C1",
         "size": 90.0,
@@ -150,7 +154,20 @@
         "sub_image_3" : "/customer/images/image_8.jpg"
     },
     {
-        "id": 11,
+        "zone_id": 2,
+        "name": "Lô căn hộ D1",
+        "size": 90.0,
+        "price": 1350000000,
+        "deposit": 350000000,
+        "specific_address": "Tầng 1, Tòa nhà D, Phân khu Căn Hộ Cao Cấp",
+        "status": "empty",
+        "description": "Căn hộ 4 phòng ngủ, thiết kế thông minh.",
+        "main_image" : "/customer/images/listing-5.jpg",
+        "sub_image_1" : "/customer/images/image_1.jpg",
+        "sub_image_2" : "/customer/images/image_6.jpg",
+        "sub_image_3" : "/customer/images/image_3.jpg"
+    },
+    {
         "zone_id": 3,
         "name": "Lô nhà phố TM-1",
         "size": 120.0,
@@ -165,7 +182,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 12,
         "zone_id": 3,
         "name": "Lô nhà phố TM-2",
         "size": 100.0,
@@ -174,13 +190,12 @@
         "specific_address": "Khu TM-2, Phân khu Nhà Phố Thương Mại",
         "status": "empty",
         "description": "Lô nhà phố nằm gần trung tâm tiện ích.",
-        "main_image" : "/customer/images/listing-1.jpg",
+        "main_image" : "/customer/images/listing-3.jpg",
         "sub_image_1" : "/customer/images/image_1.jpg",
         "sub_image_2" : "/customer/images/image_2.jpg",
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 13,
         "zone_id": 3,
         "name": "Lô nhà phố TM-3",
         "size": 110.0,
@@ -195,7 +210,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 14,
         "zone_id": 3,
         "name": "Lô nhà phố TM-4",
         "size": 130.0,
@@ -204,13 +218,12 @@
         "specific_address": "Khu TM-4, Phân khu Nhà Phố Thương Mại",
         "status": "empty",
         "description": "Lô nhà phố 2 mặt tiền, thuận lợi cho kinh doanh.",
-        "main_image" : "/customer/images/listing-1.jpg",
+        "main_image" : "/customer/images/listing-4.jpg",
         "sub_image_1" : "/customer/images/image_1.jpg",
         "sub_image_2" : "/customer/images/image_2.jpg",
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 15,
         "zone_id": 3,
         "name": "Lô nhà phố TM-5",
         "size": 115.0,
@@ -219,13 +232,26 @@
         "specific_address": "Khu TM-5, Phân khu Nhà Phố Thương Mại",
         "status": "empty",
         "description": "Lô nhà phố gần khu vực vui chơi giải trí.",
-        "main_image" : "/customer/images/listing-1.jpg",
+        "main_image" : "/customer/images/listing-2.jpg",
         "sub_image_1" : "/customer/images/image_1.jpg",
         "sub_image_2" : "/customer/images/image_2.jpg",
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 16,
+        "zone_id": 3,
+        "name": "Lô nhà phố TM-6",
+        "size": 115.0,
+        "price": 2850000000,
+        "deposit": 570000000,
+        "specific_address": "Khu TM-6, Phân khu Nhà Phố Thương Mại",
+        "status": "empty",
+        "description": "Lô nhà phố gần khu vực vui chơi giải trí.",
+        "main_image" : "/customer/images/listing-5.jpg",
+        "sub_image_1" : "/customer/images/image_7.jpg",
+        "sub_image_2" : "/customer/images/image_2.jpg",
+        "sub_image_3" : "/customer/images/image_8.jpg"
+    },
+    {
         "zone_id": 4,
         "name": "Lô công viên CP-1",
         "size": 200.0,
@@ -240,7 +266,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 17,
         "zone_id": 4,
         "name": "Lô công viên CP-2",
         "size": 180.0,
@@ -255,7 +280,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 18,
         "zone_id": 4,
         "name": "Lô công viên CP-3",
         "size": 210.0,
@@ -270,7 +294,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 19,
         "zone_id": 4,
         "name": "Lô công viên CP-4",
         "size": 220.0,
@@ -285,7 +308,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 20,
         "zone_id": 4,
         "name": "Lô công viên CP-5",
         "size": 190.0,
@@ -300,7 +322,20 @@
         "sub_image_3" : "/customer/images/image_8.jpg"
     },
     {
-        "id": 21,
+        "zone_id": 4,
+        "name": "Lô công viên CP-6",
+        "size": 190.0,
+        "price": 2400000000,
+        "deposit": 480000000,
+        "specific_address": "Khu CP-6, Phân khu Công Viên Trung Tâm",
+        "status": "empty",
+        "description": "Lô đất gần khu vực giải trí ngoài trời.",
+        "main_image" : "/customer/images/listing-3.jpg",
+        "sub_image_1" : "/customer/images/image_3.jpg",
+        "sub_image_2" : "/customer/images/image_5.jpg",
+        "sub_image_3" : "/customer/images/image_1.jpg"
+    },
+    {
         "zone_id": 5,
         "name": "Lô giải trí VC-1",
         "size": 150.0,
@@ -315,7 +350,6 @@
         "sub_image_3" : "/customer/images/image_3.jpg"
     },
     {
-        "id": 22,
         "zone_id": 5,
         "name": "Lô giải trí VC-2",
         "size": 170.0,
@@ -330,7 +364,6 @@
         "sub_image_3" : "/customer/images/image_8.jpg"
     },
     {
-        "id": 23,
         "zone_id": 5,
         "name": "Lô giải trí VC-3",
         "size": 160.0,
@@ -345,7 +378,6 @@
         "sub_image_3" : "/customer/images/image_6.jpg"
     },
     {
-        "id": 24,
         "zone_id": 5,
         "name": "Lô giải trí VC-4",
         "size": 180.0,
@@ -360,7 +392,6 @@
         "sub_image_3" : "/customer/images/image_5.jpg"
     },
     {
-        "id": 25,
         "zone_id": 5,
         "name": "Lô giải trí VC-5",
         "size": 155.0,
@@ -370,6 +401,20 @@
         "status": "empty",
         "description": "Lô đất phù hợp cho các hoạt động vui chơi mạo hiểm.",
         "main_image" : "/customer/images/listing-1.jpg",
+        "sub_image_1" : "/customer/images/image_1.jpg",
+        "sub_image_2" : "/customer/images/image_2.jpg",
+        "sub_image_3" : "/customer/images/image_3.jpg"
+    },
+    {
+        "zone_id": 5,
+        "name": "Lô giải trí VC-6",
+        "size": 155.0,
+        "price": 2050000000,
+        "deposit": 410000000,
+        "specific_address": "Khu VC-6, Phân khu Khu Vui Chơi Giải Trí",
+        "status": "empty",
+        "description": "Lô đất phù hợp cho các hoạt động vui chơi mạo hiểm.",
+        "main_image" : "/customer/images/listing-5.jpg",
         "sub_image_1" : "/customer/images/image_1.jpg",
         "sub_image_2" : "/customer/images/image_2.jpg",
         "sub_image_3" : "/customer/images/image_3.jpg"

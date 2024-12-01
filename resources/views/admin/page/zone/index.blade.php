@@ -26,8 +26,8 @@
                     @foreach( $zones as $key => $zone)
                         <tr>
                             <td>{{ $key + 1 }}</td>
-                            <td>{{ $zone->name ?? '' }}</td>
                             <td>{{ $zone->code ?? '' }}</td>
+                            <td>{{ $zone->name ?? '' }}</td>
                             <td>{{ $zone->project?->name ?? '' }}</td>
                             <td class="text-center">
                                 <a href="{{ route('zone.showUpdate', $zone->id) }}"

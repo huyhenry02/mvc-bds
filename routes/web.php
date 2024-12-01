@@ -25,7 +25,8 @@ Route::group([
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 });
 Route::group([
-    'prefix' => 'admin'
+    'prefix' => 'admin',
+    'middleware' => ['auth']
 ], function () {
     Route::group([
         'prefix' => 'user'
@@ -102,7 +103,12 @@ Route::group([
 ], function () {
     Route::get('/index', [IndexCustomerController::class, 'showIndex'])->name('customer.showIndex');
     Route::get('/projects', [IndexCustomerController::class, 'showProjects'])->name('customer.showProjects');
-    Route::get('/project-detail', [IndexCustomerController::class, 'showProjectDetail'])->name('customer.showProjectDetail');
+    Route::get('/project-detail/{project}', [IndexCustomerController::class, 'showProjectDetail'])->name('customer.showProjectDetail');
     Route::get('/service', [IndexCustomerController::class, 'showService'])->name('customer.showService');
     Route::get('/about', [IndexCustomerController::class, 'showAbout'])->name('customer.showAbout');
+    Route::get('/transaction', [IndexCustomerController::class, 'showTransaction'])->name('customer.showTransaction');
+    Route::get('/projects/search', [IndexCustomerController::class, 'searchProjects'])->name('customer.searchProjects');
+
+
+    Route::post('/transaction', [IndexCustomerController::class, 'postTransaction'])->name('customer.postTransaction');
 });

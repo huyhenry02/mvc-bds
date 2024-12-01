@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="/customer/css/flaticon.css">
     <link rel="stylesheet" href="/customer/css/icomoon.css">
     <link rel="stylesheet" href="/customer/css/style.css">
+    <script src="/assets/js/plugin/webfont/webfont.min.js"></script>
 </head>
 <body>
 

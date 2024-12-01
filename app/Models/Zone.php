@@ -19,4 +19,9 @@ class Zone extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    public function plots()
+    {
+        return $this->hasMany(Plot::class);
+    }
 }

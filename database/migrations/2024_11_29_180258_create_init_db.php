@@ -93,7 +93,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('plot_id')->constrained('plots')->onDelete('cascade');
             $table->dateTime('transaction_date');
-            $table->enum('status', ['pending', 'success', 'reject']);
+            $table->enum('status', ['pending', 'success', 'reject'])->default('pending');
             $table->text('notes')->nullable();
             $table->timestamps();
         });

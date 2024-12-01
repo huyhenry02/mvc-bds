@@ -20,7 +20,6 @@ class PlotsSeeder extends Seeder
 
         foreach ($data as $item) {
             Plot::create([
-                'id' => $item->id,
                 'zone_id' => $item->zone_id,
                 'name' => $item->name,
                 'size' => $item->size,
