@@ -63,6 +63,15 @@ class ProjectController extends Controller
         return response()->json($districts);
     }
 
+    public function searchProjects(Request $request): View|Factory|Application
+    {
+        $query = $request->input('query');
+
+        $projects = Project::where('name', 'like', '%' . $query . '%')->get();
+
+        return view('admin.page.project.search-results', compact('projects'));
+    }
+
     public function postCreate(Request $request): RedirectResponse
     {
         DB::beginTransaction();

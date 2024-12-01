@@ -16,8 +16,12 @@ class ZoneController extends Controller
     public function showIndex(): View|Factory|Application
     {
         $zones = Zone::all();
+        $projects = Project::all();
         return view('admin.page.zone.index',
-            ['zones' => $zones]
+            [
+                'zones' => $zones,
+                'projects' => $projects
+            ]
         );
     }
 
@@ -38,6 +42,22 @@ class ZoneController extends Controller
                 'projects' => $projects
             ]
         );
+    }
+    public function searchZones(Request $request): View|Factory|Application
+    {
+        $query = $request->input('query');
+        $project_id = $request->input('project_id');
+
+        $zones = Zone::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('code', 'like', '%' . $query . '%');
+            })
+            ->when($project_id, function ($queryBuilder) use ($project_id) {
+                $queryBuilder->where('project_id', $project_id);
+            })
+            ->get();
+        return view('admin.page.zone.search-results', compact('zones'));
     }
 
     public function postCreate(Request $request): RedirectResponse

@@ -33,7 +33,11 @@ Route::group([
     ], function () {
         Route::get('/', [UserController::class, 'showIndex'])->name('user.showIndex');
         Route::get('/create', [UserController::class, 'showCreate'])->name('user.showCreate');
-        Route::get('/update', [UserController::class, 'showUpdate'])->name('user.showUpdate');
+        Route::get('/update/{user}', [UserController::class, 'showUpdate'])->name('user.showUpdate');
+
+        Route::get('/admin/search-users', [UserController::class, 'searchUsers'])->name('admin.searchUsers');
+        Route::post('/update/{user}', [UserController::class, 'postUpdate'])->name('user.postUpdate');
+
     });
 
     Route::group([
@@ -42,6 +46,7 @@ Route::group([
         Route::get('/', [InvestorController::class, 'showIndex'])->name('investor.showIndex');
         Route::get('/create', [InvestorController::class, 'showCreate'])->name('investor.showCreate');
         Route::get('/update/{investor}', [InvestorController::class, 'showUpdate'])->name('investor.showUpdate');
+        Route::get('/admin/search-investors', [InvestorController::class, 'searchInvestors'])->name('admin.searchInvestors');
 
         Route::post('/create', [InvestorController::class, 'postCreate'])->name('investor.postCreate');
         Route::post('/update/{investor}', [InvestorController::class, 'postUpdate'])->name('investor.postUpdate');
@@ -60,6 +65,7 @@ Route::group([
         Route::get('/', [ZoneController::class, 'showIndex'])->name('zone.showIndex');
         Route::get('/create', [ZoneController::class, 'showCreate'])->name('zone.showCreate');
         Route::get('/update{zone}', [ZoneController::class, 'showUpdate'])->name('zone.showUpdate');
+        Route::get('/admin/search-zones', [ZoneController::class, 'searchZones'])->name('admin.searchZones');
 
         Route::post('/create', [ZoneController::class, 'postCreate'])->name('zone.postCreate');
         Route::post('/update/{zone}', [ZoneController::class, 'postUpdate'])->name('zone.postUpdate');
@@ -73,6 +79,7 @@ Route::group([
         Route::get('/create', [PlotController::class, 'showCreate'])->name('plot.showCreate');
         Route::get('/update/{plot}', [PlotController::class, 'showUpdate'])->name('plot.showUpdate');
         Route::get('/get-zones-of-project', [PlotController::class, 'getZonesOfProject'])->name('plot.getZonesOfProject');
+        Route::get('/admin/search-plots', [PlotController::class, 'searchPlots'])->name('admin.searchPlots');
 
         Route::post('/create', [PlotController::class, 'postCreate'])->name('plot.postCreate');
         Route::post('/update/{plot}', [PlotController::class, 'postUpdate'])->name('plot.postUpdate');
@@ -86,6 +93,7 @@ Route::group([
         Route::get('/create', [ProjectController::class, 'showCreate'])->name('project.showCreate');
         Route::get('/update/{project}', [ProjectController::class, 'showUpdate'])->name('project.showUpdate');
         Route::get('/get-districts', [ProjectController::class, 'getDistricts'])->name('project.getDistricts');
+        Route::get('/admin/search-projects', [ProjectController::class, 'searchProjects'])->name('admin.searchProjects');
 
         Route::post('/create', [ProjectController::class, 'postCreate'])->name('project.postCreate');
         Route::post('/update/{project}', [ProjectController::class, 'postUpdate'])->name('project.postUpdate');
@@ -96,6 +104,9 @@ Route::group([
         'prefix' => 'transaction'
     ], function () {
         Route::get('/', [TransactionController::class, 'showIndex'])->name('transaction.showIndex');
+        Route::get('/admin/search-transactions', [TransactionController::class, 'searchTransactions'])->name('admin.searchTransactions');
+
+        Route::post('/update-status', [TransactionController::class, 'updateStatus'])->name('transaction.updateStatus');
     });
 });
 Route::group([

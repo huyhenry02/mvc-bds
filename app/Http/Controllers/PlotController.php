@@ -17,8 +17,14 @@ class PlotController extends Controller
     public function showIndex(): View|Factory|Application
     {
         $plots = Plot::all();
+        $projects = Project::all();
+        $zones = Zone::all();
         return view('admin.page.plot.index',
-            ['plots' => $plots]
+            [
+                'plots' => $plots,
+                'projects' => $projects,
+                'zones' => $zones
+            ]
         );
     }
 
@@ -52,6 +58,30 @@ class PlotController extends Controller
         $project_id = $request->project_id;
         $zones = Zone::where('project_id', $project_id)->get();
         return response()->json($zones);
+    }
+
+    public function searchPlots(Request $request): View|Factory|Application
+    {
+        $query = $request->input('query');
+        $project_id = $request->input('project_id');
+        $zone_id = $request->input('zone_id');
+
+        $plots = Plot::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('code', 'like', '%' . $query . '%');
+            })
+            ->when($project_id, function ($queryBuilder) use ($project_id) {
+                $queryBuilder->whereHas('zone', function($query) use ($project_id) {
+                    $query->where('project_id', $project_id);
+                });
+            })
+            ->when($zone_id, function ($queryBuilder) use ($zone_id) {
+                $queryBuilder->where('zone_id', $zone_id);
+            })
+            ->get();
+
+        return view('admin.page.plot.search-results', compact('plots'));
     }
 
     public function postCreate(Request $request): RedirectResponse

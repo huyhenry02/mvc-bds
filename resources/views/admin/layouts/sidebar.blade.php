@@ -1,7 +1,6 @@
 <?php
 $routesUser = [
     'user.showIndex',
-    'user.showCreate',
     'user.showUpdate',
 ];
 
@@ -67,11 +66,6 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                         <li class="{{ request()->routeIs('user.showIndex') ? 'active' : '' }}">
                             <a href="{{ route('user.showIndex') }}">
                                 <span class="sub-item">Danh sách người dùng</span>
-                            </a>
-                        </li>
-                        <li class="{{ request()->routeIs('user.showCreate') ? 'active' : '' }}">
-                            <a href="{{ route('user.showCreate') }}">
-                                <span class="sub-item">Thêm mới người dùng</span>
                             </a>
                         </li>
                     </ul>

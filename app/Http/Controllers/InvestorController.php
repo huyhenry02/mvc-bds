@@ -33,6 +33,18 @@ class InvestorController extends Controller
         );
     }
 
+    public function searchInvestors(Request $request): View|Factory|Application
+    {
+        $query = $request->input('query');
+
+        $investors = Investor::where('full_name', 'like', '%' . $query . '%')
+            ->orWhere('email', 'like', '%' . $query . '%')
+            ->orWhere('phone_number', 'like', '%' . $query . '%')
+            ->get();
+
+        return view('admin.page.investor.search-results', compact('investors'));
+    }
+
     public function postCreate(Request $request): RedirectResponse
     {
         DB::beginTransaction();
