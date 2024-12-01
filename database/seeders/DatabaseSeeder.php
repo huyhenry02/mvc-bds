@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
             DistrictsSeeder::class,
             CategoriesSeeder::class,
             UsersSeeder::class,
+            InvestorsSeeder::class,
+            ProjectsSeeder::class,
+            ZonesSeeder::class,
+            PlotsSeeder::class
         ]);
     }
 }

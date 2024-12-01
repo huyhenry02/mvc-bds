@@ -24,7 +24,6 @@ class Plot extends Model
         'sub_image_1',
         'sub_image_2',
         'sub_image_3',
-        'sub_image_4',
     ];
 
     public function zone(): BelongsTo

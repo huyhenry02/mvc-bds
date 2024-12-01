@@ -2,7 +2,6 @@
 @section('content')
     <section class="ftco-section contact-section">
         <div class="container">
-            <!-- Tiêu đề trang đăng ký -->
             <div class="row d-flex mb-10 contact-info justify-content-center">
                 <div class="col-md-8 text-center">
                     <h2 class="mb-2">Đăng ký</h2>
@@ -10,10 +9,9 @@
                 </div>
             </div>
 
-            <!-- Form đăng ký -->
             <div class="row block-9 justify-content-center mb-5">
                 <div class="col-md-6">
-                    <form action="" method="POST" class="bg-light p-5 contact-form">
+                    <form action="{{ route('auth.postRegister') }}" method="POST" class="bg-light p-5 contact-form">
                         @csrf
 
                         <div class="form-group">
@@ -61,8 +59,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-
-                        <input type="hidden" name="role" value="customer">
 
                         <div class="form-group text-center">
                             <input type="submit" value="Đăng ký" class="btn btn-primary w-100">

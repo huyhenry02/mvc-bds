@@ -64,6 +64,7 @@ return new class extends Migration
 
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
@@ -74,9 +75,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('zone_id')->constrained('zones')->onDelete('cascade');
             $table->string('name');
-            $table->float('size');
-            $table->integer('price');
-            $table->integer('deposit');
+            $table->integer('size');
+            $table->bigInteger('price');
+            $table->bigInteger('deposit');
             $table->string('specific_address')->nullable();
             $table->enum('status', ['empty', 'deposited', 'sold']);
             $table->text('description')->nullable();
@@ -84,7 +85,6 @@ return new class extends Migration
             $table->string('sub_image_1')->nullable();
             $table->string('sub_image_2')->nullable();
             $table->string('sub_image_3')->nullable();
-            $table->string('sub_image_4')->nullable();
             $table->timestamps();
         });
 

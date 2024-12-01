@@ -48,6 +48,9 @@ class ZoneController extends Controller
             $zone = new Zone();
             $zone->fill($input);
             $zone->save();
+
+            $zone->code = 'PK-' . $zone->id;
+            $zone->save();
             DB::commit();
             return redirect()->route('zone.showIndex')->with('success', 'Tạo mới thành công');
         } catch (\Exception $e) {

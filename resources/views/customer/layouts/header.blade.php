@@ -7,10 +7,10 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="{{ route('customer.showIndex') }}" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="{{ route('customer.showAbout') }}" class="nav-link">Về chúng tôi</a></li>
-                <li class="nav-item"><a href="{{ route('customer.showProjects') }}" class="nav-link">Dự án</a></li>
-                <li class="nav-item"><a href="{{ route('customer.showService') }}" class="nav-link">Chính sách</a></li>
+                <li class="nav-item {{ request()->routeIs('customer.showIndex') ? 'active' : '' }}"><a href="{{ route('customer.showIndex') }}" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item {{ request()->routeIs('customer.showAbout') ? 'active' : '' }}"><a href="{{ route('customer.showAbout') }}" class="nav-link">Về chúng tôi</a></li>
+                <li class="nav-item {{ request()->routeIs('customer.showProjects') ? 'active' : '' }}"><a href="{{ route('customer.showProjects') }}" class="nav-link">Dự án</a></li>
+                <li class="nav-item {{ request()->routeIs('customer.showService') ? 'active' : '' }}"><a href="{{ route('customer.showService') }}" class="nav-link">Dịch vụ</a></li>
             </ul>
             <div class="ml-auto">
                 @if(auth()->user())

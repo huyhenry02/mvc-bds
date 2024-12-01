@@ -9,6 +9,7 @@ class Zone extends Model
 {
     protected $table = 'zones';
     protected $fillable = [
+        'code',
         'name',
         'description',
         'project_id',

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "code": "PK-1",
+        "name": "Phân khu Biệt Thự Vườn",
+        "description": "Khu biệt thự cao cấp với không gian xanh và tiện ích hiện đại.",
+        "project_id": 1
+    },
+    {
+        "id": 2,
+        "code": "PK-2",
+        "name": "Phân khu Căn Hộ Cao Cấp",
+        "description": "Khu căn hộ hiện đại, đầy đủ tiện ích dành cho cư dân trẻ.",
+        "project_id": 1
+    },
+    {
+        "id": 3,
+        "code": "PK-3",
+        "name": "Phân khu Nhà Phố Thương Mại",
+        "description": "Khu nhà phố kinh doanh sầm uất, kết hợp giữa nhà ở và thương mại.",
+        "project_id": 1
+    },
+    {
+        "id": 4,
+        "code": "PK-4",
+        "name": "Phân khu Công Viên Trung Tâm",
+        "description": "Công viên trung tâm với cảnh quan thiên nhiên, nơi lý tưởng để thư giãn.",
+        "project_id": 1
+    },
+    {
+        "id": 5,
+        "code": "PK-5",
+        "name": "Phân khu Khu Vui Chơi Giải Trí",
+        "description": "Khu vực dành riêng cho các hoạt động giải trí và thể thao.",
+        "project_id": 1
+    }
+]

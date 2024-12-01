@@ -16,6 +16,7 @@
                     <thead class="thead-light">
                     <tr>
                         <th scope="col" width="10%">STT</th>
+                        <th scope="col">Mã phân khu</th>
                         <th scope="col">Tên phân khu</th>
                         <th scope="col">Dự án</th>
                         <th class="text-center" scope="col" width="10%">Hành động</th>
@@ -26,6 +27,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $zone->name ?? '' }}</td>
+                            <td>{{ $zone->code ?? '' }}</td>
                             <td>{{ $zone->project?->name ?? '' }}</td>
                             <td class="text-center">
                                 <a href="{{ route('zone.showUpdate', $zone->id) }}"

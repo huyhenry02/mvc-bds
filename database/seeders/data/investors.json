@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "full_name": "Nguyễn Văn Hùng",
+        "email": "hung.nguyen@gmail.com",
+        "phone_number": "0901234567",
+        "description": "Chuyên đầu tư vào các dự án bất động sản cao cấp tại miền Trung."
+    },
+    {
+        "id": 2,
+        "full_name": "Trần Thị Hoa",
+        "email": "hoa.tran@gmail.com",
+        "phone_number": "0912345678",
+        "description": "Đầu tư vào lĩnh vực du lịch và khách sạn với hơn 10 năm kinh nghiệm."
+    },
+    {
+        "id": 3,
+        "full_name": "Phạm Quốc Bảo",
+        "email": "bao.pham@gmail.com",
+        "phone_number": "0923456789",
+        "description": "Nhà đầu tư phát triển các khu đô thị xanh tại Hà Nội và TP.HCM."
+    },
+    {
+        "id": 4,
+        "full_name": "Lê Văn Minh",
+        "email": "minh.le@gmail.com",
+        "phone_number": "0934567890",
+        "description": "Đầu tư vào các dự án biệt thự nghỉ dưỡng tại Đà Lạt và vùng Tây Nguyên."
+    },
+    {
+        "id": 5,
+        "full_name": "Nguyễn Thị Mai",
+        "email": "mai.nguyen@gmail.com",
+        "phone_number": "0945678901",
+        "description": "Chuyên đầu tư các dự án nhà ở thân thiện với môi trường ở khu vực phía Nam."
+    }
+]
