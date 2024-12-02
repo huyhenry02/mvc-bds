@@ -112,12 +112,12 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                     <ul class="nav nav-collapse">
                         <li class="{{ request()->routeIs('investor.showIndex') ? 'active' : '' }}">
                             <a href="{{ route('investor.showIndex') }}">
-                                <span class="sub-item">Danh sách đầu tư</span>
+                                <span class="sub-item">Danh sách chủ đầu tư</span>
                             </a>
                         </li>
                         <li class="{{ request()->routeIs('investor.showCreate') ? 'active' : '' }}">
                             <a href="{{ route('investor.showCreate') }}">
-                                <span class="sub-item">Thêm mới đầu tư</span>
+                                <span class="sub-item">Thêm mới chủ đầu tư</span>
                             </a>
                         </li>
                     </ul>

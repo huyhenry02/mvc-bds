@@ -23,7 +23,7 @@
                         <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Dự án</th>
+                            <th>Tên khu đất</th>
                             <th>Giá đặt cọc (VND)</th>
                             <th>Trạng thái</th>
                             <th width="10%"></th>
@@ -33,7 +33,7 @@
                         @foreach( $transactions as $key => $transaction)
                             <tr>
                                 <th>{{ $key + 1 }}</th>
-                                <td>{{ $transaction->plot->zone?->project?->name ?? '' }}</td>
+                                <td>{{ $transaction->plot?->name ?? '' }}</td>
                                 <td>{{ number_format($transaction->plot->deposit) ?? '' }}</td>
                                 <td>
                                     @switch( $transaction->status )
@@ -54,7 +54,7 @@
                                         class="btn btn-secondary w-50 ml-2 view-details"
                                         data-bs-toggle="modal"
                                         data-project_name="{{ $transaction->plot->zone?->project?->name }}"
-                                        data-project_image="{{ $transaction->plot->zone?->project?->image_project }}"
+                                        data-project_image="{{ $transaction->plot->main_image ?? '' }}"
                                         data-zone_name="{{ $transaction->plot->zone?->name }}"
                                         data-date="{{ $transaction->transaction_date }}"
                                         data-account_holder="{{ $transaction->plot->zone?->project?->account_holder }}"

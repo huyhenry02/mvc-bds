@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plot;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -41,6 +42,12 @@ class TransactionController extends Controller
             $transaction->status = $input['status'];
             $transaction->notes = $input['notes'];
             $transaction->save();
+
+            if ($input['status'] === Transaction::STATUS_SUCCESS) {
+                $transaction->plot->status = Plot::STATUS_DEPOSITED;
+                $transaction->plot->save();
+            }
+
             return redirect()->back()->with('success', 'Cập nhật trạng thái giao dịch thành công');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Có lỗi xảy ra');

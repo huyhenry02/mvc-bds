@@ -38,6 +38,7 @@
                                 <div class="form-group">
                                     <label for="status">Trạng thái <span class="text-danger">*</span></label>
                                     <select class="form-control" id="status" name="status" required>
+                                        <option value="">-- Chọn trạng thái --</option>
                                         <option value="on_sale">Đang bán</option>
                                         <option value="completed">Hoàn thành</option>
                                         <option value="upcoming">Sắp diễn ra</option>
