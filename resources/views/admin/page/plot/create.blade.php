@@ -47,6 +47,7 @@
                                 <div class="form-group">
                                     <label for="title">Trạng thái <span class="text-danger">*</span></label>
                                     <select class="form-control" id="status" name="status" required>
+                                        <option value="">-- Chọn trạng thái --</option>
                                         <option value="empty">Trống</option>
                                         <option value="deposited">Đã đặt cọc</option>
                                         <option value="sold">Đã bán</option>
