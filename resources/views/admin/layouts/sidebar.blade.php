@@ -36,6 +36,8 @@ $routesTransaction = [
 
 $routesReport = [
     'report.showReportUser',
+    'report.showReportTransaction',
+    'report.showReportProject',
 ];
 
 $isActiveUser = collect($routesUser)->contains(fn($route) => request()->routeIs($route));
@@ -209,9 +211,19 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                 </a>
                 <div class="collapse {{ $isActiveReport ? 'show' : '' }}" id="statistic">
                     <ul class="nav nav-collapse">
+                        <li class="{{ request()->routeIs('report.showReportTransaction') ? 'active' : '' }}">
+                            <a href="{{ route('report.showReportTransaction') }}">
+                                <span class="sub-item">Báo cáo giao dịch</span>
+                            </a>
+                        </li>
                         <li class="{{ request()->routeIs('report.showReportUser') ? 'active' : '' }}">
                             <a href="{{ route('report.showReportUser') }}">
                                 <span class="sub-item">Thống kê người dùng</span>
+                            </a>
+                        </li>
+                        <li class="{{ request()->routeIs('report.showReportProject') ? 'active' : '' }}">
+                            <a href="{{ route('report.showReportProject') }}">
+                                <span class="sub-item">Thống kê dự án</span>
                             </a>
                         </li>
                     </ul>

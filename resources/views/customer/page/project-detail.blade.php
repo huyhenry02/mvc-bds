@@ -1,3 +1,4 @@
+@php use App\Models\Plot; @endphp
 @extends('customer.layouts.main')
 @section('content')
     <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight"
@@ -80,22 +81,9 @@
                                                                                     m²
                                                                                 </li>
                                                                             </ul>
-                                                                            <div
-                                                                                class="d-flex justify-content-center mt-3">
+                                                                            @if( $plot->status === Plot::STATUS_DEPOSITED)
                                                                                 <button
-                                                                                    class="btn btn-primary w-50 view-deposits"
-                                                                                    data-bs-toggle="modal"
-                                                                                    data-account_holder="{{ $project->account_holder }}"
-                                                                                    data-account_number="{{ $project->account_number }}"
-                                                                                    data-bank="{{ $project->bank }}"
-                                                                                    data-qr_code="{{ $project->qr_code }}"
-                                                                                    data-deposit_price="{{ $plot->deposit }}"
-                                                                                    data-plot_id="{{ $plot->id }}"
-                                                                                    data-bs-target="#depositModal">
-                                                                                    Đặt cọc
-                                                                                </button>
-                                                                                <button
-                                                                                    class="btn btn-secondary w-50 ml-2 view-details"
+                                                                                    class="btn btn-secondary w-100 view-details"
                                                                                     data-bs-toggle="modal"
                                                                                     data-name="{{ $plot->name }}"
                                                                                     data-size="{{ $plot->size }}"
@@ -112,7 +100,41 @@
                                                                                     data-bs-target="#detailModal">
                                                                                     Xem chi tiết
                                                                                 </button>
-                                                                            </div>
+                                                                            @else
+                                                                                <div
+                                                                                    class="d-flex justify-content-center mt-3">
+                                                                                    <button
+                                                                                        class="btn btn-primary w-50 view-deposits"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-account_holder="{{ $project->account_holder }}"
+                                                                                        data-account_number="{{ $project->account_number }}"
+                                                                                        data-bank="{{ $project->bank }}"
+                                                                                        data-qr_code="{{ $project->qr_code }}"
+                                                                                        data-deposit_price="{{ $plot->deposit }}"
+                                                                                        data-plot_id="{{ $plot->id }}"
+                                                                                        data-bs-target="#depositModal">
+                                                                                        Đặt cọc
+                                                                                    </button>
+                                                                                    <button
+                                                                                        class="btn btn-secondary w-50 ml-2 view-details"
+                                                                                        data-bs-toggle="modal"
+                                                                                        data-name="{{ $plot->name }}"
+                                                                                        data-size="{{ $plot->size }}"
+                                                                                        data-price="{{ $plot->price }}"
+                                                                                        data-deposit="{{ $plot->deposit }}"
+                                                                                        data-specific_address="{{ $plot->specific_address }}"
+                                                                                        data-status="{{ $plot->status }}"
+                                                                                        data-description="{{ $plot->description }}"
+                                                                                        data-main_image="{{ $plot->main_image }}"
+                                                                                        data-sub_image_1="{{ $plot->sub_image_1 }}"
+                                                                                        data-sub_image_2="{{ $plot->sub_image_2 }}"
+                                                                                        data-sub_image_3="{{ $plot->sub_image_3 }}"
+                                                                                        data-plot_id="{{ $plot->id }}"
+                                                                                        data-bs-target="#detailModal">
+                                                                                        Xem chi tiết
+                                                                                    </button>
+                                                                                </div>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -155,20 +177,9 @@
                                                                 m2
                                                             </li>
                                                         </ul>
-                                                        <div class="d-flex justify-content-center mt-3">
-                                                            <button class="btn btn-primary w-50 view-deposits"
-                                                                    data-bs-toggle="modal"
-                                                                    data-account_holder="{{ $project->account_holder }}"
-                                                                    data-account_number="{{ $project->account_number }}"
-                                                                    data-bank="{{ $project->bank }}"
-                                                                    data-qr_code="{{ $project->qr_code }}"
-                                                                    data-deposit_price="{{ $plot->deposit }}"
-                                                                    data-plot_id="{{ $plot->id }}"
-                                                                    data-bs-target="#depositModal">
-                                                                Đặt cọc
-                                                            </button>
+                                                        @if( $plot->status === Plot::STATUS_DEPOSITED)
                                                             <button
-                                                                class="btn btn-secondary w-50 ml-2 view-details"
+                                                                class="btn btn-secondary w-100 view-details"
                                                                 data-bs-toggle="modal"
                                                                 data-name="{{ $plot->name }}"
                                                                 data-size="{{ $plot->size }}"
@@ -185,7 +196,39 @@
                                                                 data-bs-target="#detailModal">Xem
                                                                 chi tiết
                                                             </button>
-                                                        </div>
+                                                        @else
+                                                            <div class="d-flex justify-content-center mt-3">
+                                                                <button class="btn btn-primary w-50 view-deposits"
+                                                                        data-bs-toggle="modal"
+                                                                        data-account_holder="{{ $project->account_holder }}"
+                                                                        data-account_number="{{ $project->account_number }}"
+                                                                        data-bank="{{ $project->bank }}"
+                                                                        data-qr_code="{{ $project->qr_code }}"
+                                                                        data-deposit_price="{{ $plot->deposit }}"
+                                                                        data-plot_id="{{ $plot->id }}"
+                                                                        data-bs-target="#depositModal">
+                                                                    Đặt cọc
+                                                                </button>
+                                                                <button
+                                                                    class="btn btn-secondary w-50 ml-2 view-details"
+                                                                    data-bs-toggle="modal"
+                                                                    data-name="{{ $plot->name }}"
+                                                                    data-size="{{ $plot->size }}"
+                                                                    data-price="{{ $plot->price }}"
+                                                                    data-deposit="{{ $plot->deposit }}"
+                                                                    data-specific_address="{{ $plot->specific_address }}"
+                                                                    data-status="{{ $plot->status }}"
+                                                                    data-description="{{ $plot->description }}"
+                                                                    data-main_image="{{ $plot->main_image }}"
+                                                                    data-sub_image_1="{{ $plot->sub_image_1 }}"
+                                                                    data-sub_image_2="{{ $plot->sub_image_2 }}"
+                                                                    data-sub_image_3="{{ $plot->sub_image_3 }}"
+                                                                    data-plot_id="{{ $plot->id }}"
+                                                                    data-bs-target="#detailModal">Xem
+                                                                    chi tiết
+                                                                </button>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,7 +300,6 @@
                 const sub_image_3 = this.getAttribute('data-sub_image_3');
                 const plot_id = this.getAttribute('data-plot_id');
 
-
                 const priceFormatted = new Intl.NumberFormat('vi-VN', {
                     style: 'currency',
                     currency: 'VND'
@@ -297,6 +339,10 @@
 
                 statusElement.innerHTML = statusHTML;
                 const depositButton = document.querySelector('#detailModal .view-deposits');
+                if (status === 'deposited') {
+                    depositButton.style.display = 'none';
+                }
+
                 depositButton.setAttribute('data-deposit_price', deposit);
                 depositButton.setAttribute('data-plot_id', plot_id);
             });

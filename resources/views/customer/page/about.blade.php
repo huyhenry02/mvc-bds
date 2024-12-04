@@ -22,8 +22,8 @@
                     <div class="heading-section">
                         <h2 class="mb-4">Chào Mừng Đến Với HLC - Công Ty Bất Động Sản</h2>
 
-                        <p>Một con sông nhỏ tên là Duden chảy qua nơi đây, cung cấp nguồn tài nguyên quý giá. Đây là một miền đất thiên đường, nơi mà mọi thứ đều trở nên hoàn hảo.</p>
-                        <p>Trên đường đi, cô gặp một bản sao. Bản sao đã cảnh báo Câu Chuyện Nhỏ Mù Lòa rằng nó đã bị viết lại hàng nghìn lần và những gì còn lại chỉ là một vài từ ngắn ngủi, khuyên rằng cô nên quay về miền đất an toàn của mình.</p>
+                        <p>HLC tự hào là đơn vị đầu tư bất động sản chuyên nghiệp, tập trung tại địa bàn thành phố Hà Nội. Chúng tôi luôn nhận được sự hài lòng, tin tưởng hợp tác từ những khách hàng khó tính nhất.</p>
+                        <p>HLC tự hào là đơn vị đầu tư bất động sản chuyên nghiệp, tập trung tại địa bàn thành phố Hà Nội. Chúng tôi luôn nhận được sự hài lòng, tin tưởng hợp tác từ những khách hàng khó tính nhất.</p>
                         <p><a href="#" class="btn btn-primary">Tìm Dự Án</a></p>
                     </div>
                 </div>
@@ -75,18 +75,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <h3 style="font-weight: 600; font-size: 20px;">Sứ Mệnh Của Chúng Tôi</h3>
-                    <p>Một con sông nhỏ tên là Duden chảy qua nơi đây, cung cấp nguồn tài nguyên quý giá. Đây là một miền đất thiên đường, nơi mà mọi thứ đều trở nên hoàn hảo.</p>
+                    <p>HLC Group luôn nỗ lực tạo ra những đột phá trong tư duy, kết nối và hợp tác với  chất xám cao, giá trị sử dụng lớn cho xã hội những mối liên kết bền chắc.</p>
                 </div>
                 <div class="col-md-4">
                     <h3 style="font-weight: 600; font-size: 20px;">Tầm Nhìn Của Chúng Tôi</h3>
-                    <p>Một con sông nhỏ tên là Duden chảy qua nơi đây, cung cấp nguồn tài nguyên quý giá. Đây là một miền đất thiên đường, nơi mà mọi thứ đều trở nên hoàn hảo.</p>
+                    <p> Tại HLC Group, triết lý cùng nhau phát triển được hình thành dựa trên nền tảng chia sẻ lợi ích và tập hợp sức mạnh. Mỗi thành viên, đối tác, khách hàng đều nhận được những giá trị tương ứng.</p>
                 </div>
                 <div class="col-md-4">
                     <h3 style="font-weight: 600; font-size: 20px;">Giá Trị Của Chúng Tôi</h3>
-                    <p>Một con sông nhỏ tên là Duden chảy qua nơi đây, cung cấp nguồn tài nguyên quý giá. Đây là một miền đất thiên đường, nơi mà mọi thứ đều trở nên hoàn hảo.</p>
+                    <p>Chúng tôi tin rằng, “Giúp Khách Hàng Thành Công / Helping Clients Succeed” sẽ giúp HLC Group thành công.</p>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection

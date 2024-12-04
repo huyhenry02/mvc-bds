@@ -13,4 +13,19 @@ class ReportController extends Controller
     {
         return view('admin.page.report.user');
     }
+
+    public function showReportTransaction(): View|Factory|Application
+    {
+        return view('admin.page.report.transaction');
+    }
+
+    public function showReportProject(): View|Factory|Application
+    {
+        return view('admin.page.report.project');
+    }
+
+    public function showPreviewExport(): View|Factory|Application
+    {
+        return view('admin.page.report.preview_export');
+    }
 }

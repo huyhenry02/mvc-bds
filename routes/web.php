@@ -57,6 +57,9 @@ Route::group([
         'prefix' => 'report'
     ], function () {
         Route::get('/user', [ReportController::class, 'showReportUser'])->name('report.showReportUser');
+        Route::get('/transaction', [ReportController::class, 'showReportTransaction'])->name('report.showReportTransaction');
+        Route::get('/project', [ReportController::class, 'showReportProject'])->name('report.showReportProject');
+        Route::get('/preview-export', [ReportController::class, 'showPreviewExport'])->name('report.showPreviewExport');
     });
 
     Route::group([

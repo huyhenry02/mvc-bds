@@ -19,8 +19,6 @@
             </a>
         </div>
     </div>
-
-
     <section class="ftco-section goto-here">
         <div class="container">
             <div class="row justify-content-center">
@@ -232,7 +230,6 @@
             </div>
         </div>
     </section>
-
     <section class="ftco-section ftco-fullwidth">
         <div class="overlay"></div>
         <div class="container">
@@ -325,7 +322,6 @@
             </div>
         </div>
     </section>
-
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
