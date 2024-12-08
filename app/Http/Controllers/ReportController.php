@@ -69,13 +69,15 @@ class ReportController extends Controller
 
     public function showPreviewExport(Request $request): View|Factory|Application
     {
-        $request->projects = array_map('intval', explode(',', $request->projects));
+        if ($request->has('projects') && !empty($request->projects)) {
+            $request->projects = array_map('intval', explode(',', $request->projects));
+        }
         $data = $this->handleDataTransaction($request);
         return view('admin.page.report.preview_export', [
             'data' => $data,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'projects' => $request->projects,
+            'projects' => $request->projects ?? [],
         ]);
     }
 
@@ -94,7 +96,9 @@ class ReportController extends Controller
 
     public function generatePDF(Request $request): Response
     {
-        $request->projects = array_map('intval', explode(',', $request->projects));
+        if ($request->has('projects') && !empty($request->projects)) {
+            $request->projects = array_map('intval', explode(',', $request->projects));
+        }
         $data = $this->handleDataTransaction($request);
         $dataView = [
             'title' => 'Laravel PDF Export',
