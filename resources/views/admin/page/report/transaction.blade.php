@@ -9,15 +9,17 @@
     <div class="row">
         <div class="col-6 d-flex">
             <div class="dropdown" style="margin-right: 5px">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="projectDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="projectDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                     Chọn dự án
                 </button>
-                <div class="dropdown-menu" aria-labelledby="projectDropdown" style="width: 300px; max-height: 200px; overflow-y: auto;">
+                <div class="dropdown-menu" aria-labelledby="projectDropdown"
+                     style="width: 300px; max-height: 200px; overflow-y: auto;">
                     <ul id="projectList" class="list-unstyled mt-2">
                         @foreach($projects as $project)
                             <li>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{ $project->id }}" />
+                                    <input class="form-check-input" type="checkbox" value="{{ $project->id }}"/>
                                     <label class="form-check-label">{{ $project->name }}</label>
                                 </div>
                             </li>
@@ -43,9 +45,8 @@
         </div>
         <div class="col-3 d-flex ms-auto justify-content-end">
             <a id="previewBtn" class="btn btn-outline-secondary me-2" href="#">
-                <i class="fas fa-eye me-2"></i>Xem Trước
+                <i class="fas fa-eye me-2"></i>Xem file tải xuống
             </a>
-            <a class="btn btn-info" href="{{ route('report.generatePDF') }}"><i class="fas fa-download me-2"></i>Xuất báo cáo</a>
         </div>
     </div>
     <div class="row mt-4">
@@ -59,7 +60,7 @@
                         <th scope="col">Phân khu</th>
                         <th scope="col">Tên khu đất</th>
                         <th scope="col">Thời gian giao dịch</th>
-                        <th scope="col"  class="text-center">Số tiền đặt cọc</th>
+                        <th scope="col" class="text-center">Số tiền đặt cọc</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -182,24 +183,28 @@
         $(document).ready(function () {
             $('#previewBtn').on('click', function (e) {
                 e.preventDefault();
-
                 const selectedProjects = [];
                 $('#projectList .form-check-input:checked').each(function () {
                     selectedProjects.push($(this).val());
                 });
 
                 const startDate = $('#start_date').val();
+                if (!startDate) {
+                    alert('Vui lòng chọn ngày bắt đầu');
+                    return;
+                }
                 const endDate = $('#end_date').val();
-
+                if (!endDate) {
+                    alert('Vui lòng chọn ngày kết thúc');
+                    return;
+                }
                 const queryParams = new URLSearchParams({
                     start_date: startDate,
                     end_date: endDate,
                     projects: selectedProjects.join(',')
                 });
-
                 window.location.href = `{{ route('report.showPreviewExport') }}?${queryParams.toString()}`;
             });
         });
-
     </script>
 @endsection

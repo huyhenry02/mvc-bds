@@ -91,6 +91,9 @@
             </tr>
             </thead>
             <tbody>
+            @php
+                $totalDeposits = 0
+            @endphp
             @if( count($data) > 0 )
                 @php
                     $totalDeposits = collect($data)->sum(fn($zones) => collect($zones)->sum(fn($plots) => collect($plots)->sum('deposit')));
