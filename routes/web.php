@@ -19,10 +19,12 @@ Route::group([
 ], function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.showLogin');
     Route::get('/register', [AuthController::class, 'showRegister'])->name('auth.showRegister');
+    Route::get('/change-password', [AuthController::class, 'showChangePassword'])->name('auth.showChangePassword');
 
     Route::post('/register', [AuthController::class, 'postRegister'])->name('auth.postRegister');
     Route::post('/login', [AuthController::class, 'postLogin'])->name('auth.postLogin');
-    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('auth');
+    Route::post('/change-password', [AuthController::class, 'postChangePassword'])->name('auth.postChangePassword')->middleware('auth');
 });
 Route::group([
     'prefix' => 'admin',
@@ -60,6 +62,10 @@ Route::group([
         Route::get('/transaction', [ReportController::class, 'showReportTransaction'])->name('report.showReportTransaction');
         Route::get('/project', [ReportController::class, 'showReportProject'])->name('report.showReportProject');
         Route::get('/preview-export', [ReportController::class, 'showPreviewExport'])->name('report.showPreviewExport');
+        Route::post('/data-transaction', [ReportController::class, 'showDataTransaction'])->name('report.showDataTransaction');
+
+        Route::post('/generate-pdf', [ReportController::class, 'generatePDF'])->name('report.generatePDF');
+        Route::get('/data-chart/time_type={timeType}/type_chart={typeChart}', [ReportController::class, 'showDataChart'])->name('report.showDataUser');
     });
 
     Route::group([
@@ -120,9 +126,9 @@ Route::group([
     Route::get('/project-detail/{project}', [IndexCustomerController::class, 'showProjectDetail'])->name('customer.showProjectDetail');
     Route::get('/service', [IndexCustomerController::class, 'showService'])->name('customer.showService');
     Route::get('/about', [IndexCustomerController::class, 'showAbout'])->name('customer.showAbout');
-    Route::get('/transaction', [IndexCustomerController::class, 'showTransaction'])->name('customer.showTransaction');
+    Route::get('/transaction', [IndexCustomerController::class, 'showTransaction'])->name('customer.showTransaction')->middleware('auth');
     Route::get('/projects/search', [IndexCustomerController::class, 'searchProjects'])->name('customer.searchProjects');
 
 
-    Route::post('/transaction', [IndexCustomerController::class, 'postTransaction'])->name('customer.postTransaction');
+    Route::post('/transaction', [IndexCustomerController::class, 'postTransaction'])->name('customer.postTransaction')->middleware('auth');
 });

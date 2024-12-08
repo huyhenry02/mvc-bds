@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
@@ -42,6 +43,11 @@ class AuthController extends Controller
         }
     }
 
+    public function showChangePassword(): View|Factory|Application
+    {
+        return view('auth.change-password');
+    }
+
     public function postLogin(Request $request): ?RedirectResponse
     {
         try {
@@ -55,6 +61,30 @@ class AuthController extends Controller
             return redirect()->back();
         } catch (Exception $e) {
             return redirect()->route('auth.showLogin')->with('error', $e->getMessage());
+        }
+    }
+
+    public function postChangePassword(Request $request): RedirectResponse
+    {
+        try {
+            if ($request->new_password !== $request->confirm_password) {
+                return back()->withErrors(['confirm_password' => 'Mật khẩu xác nhận không khớp.']);
+            }
+            $request->validate([
+                'old_password' => 'required',
+                'new_password' => 'required',
+                'confirm_password' => 'required|same:new_password',
+            ]);
+            $input = $request->all();
+            if (!Hash::check($input['old_password'], auth()->user()->password)) {
+                return back()->withErrors(['old_password' => 'Mật khẩu hiện tại không chính xác.']);
+            }
+            auth()->user()->update([
+                'password' => Hash::make($input['new_password']),
+            ]);
+            return redirect()->route('auth.showChangePassword')->with('status', 'Đổi mật khẩu thành công!');
+        }catch (Exception $e) {
+            return redirect()->route('auth.showChangePassword')->with('error', $e->getMessage());
         }
     }
 

@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="/customer/css/icomoon.css">
     <link rel="stylesheet" href="/customer/css/style.css">
     <script src="/assets/js/plugin/webfont/webfont.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 

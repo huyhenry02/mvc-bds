@@ -17,7 +17,13 @@
                             <input type="text" class="form-control" placeholder="Email của bạn" name="email">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Mật khẩu" name="password">
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Mật khẩu" id="password"
+                                       name="password">
+                                <span class="input-group-text ml-1">
+                                    <i class="fas fa-eye toggle-password" data-target="password"></i>
+                                </span>
+                            </div>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
@@ -39,4 +45,20 @@
             </div>
         </div>
     </section>
+    <script>
+        document.querySelectorAll('.toggle-password').forEach(icon => {
+            icon.addEventListener('click', function () {
+                const target = document.getElementById(this.getAttribute('data-target'));
+                if (target.type === 'password') {
+                    target.type = 'text';
+                    this.classList.remove('fa-eye');
+                    this.classList.add('fa-eye-slash');
+                } else {
+                    target.type = 'password';
+                    this.classList.remove('fa-eye-slash');
+                    this.classList.add('fa-eye');
+                }
+            });
+        });
+    </script>
 @endsection
