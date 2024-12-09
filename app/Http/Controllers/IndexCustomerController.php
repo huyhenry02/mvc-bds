@@ -18,7 +18,12 @@ class IndexCustomerController extends Controller
 {
     public function showIndex(): View|Factory|Application
     {
-        return view('customer.page.index');
+        $projects = Project::all();
+        return view('customer.page.index'
+            , [
+                'projects' => $projects
+            ]
+        );
     }
 
     public function showProjects(): View|Factory|Application
@@ -30,7 +35,7 @@ class IndexCustomerController extends Controller
             [
                 'projects' => $projects,
                 'cities' => $cities,
-                'categories' => $categories
+                'categories' => $categories,
             ]
         );
     }
