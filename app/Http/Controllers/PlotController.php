@@ -65,7 +65,7 @@ class PlotController extends Controller
         $query = $request->input('query');
         $project_id = $request->input('project_id');
         $zone_id = $request->input('zone_id');
-
+        $status = $request->input('status');
         $plots = Plot::query()
             ->when($query, function ($queryBuilder) use ($query) {
                 $queryBuilder->where('name', 'like', '%' . $query . '%')
@@ -78,6 +78,9 @@ class PlotController extends Controller
             })
             ->when($zone_id, function ($queryBuilder) use ($zone_id) {
                 $queryBuilder->where('zone_id', $zone_id);
+            })
+            ->when($status, function ($queryBuilder) use ($status) {
+                $queryBuilder->where('status', $status);
             })
             ->get();
 

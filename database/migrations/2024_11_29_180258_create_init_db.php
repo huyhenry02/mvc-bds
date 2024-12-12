@@ -53,7 +53,6 @@ return new class extends Migration
             $table->string('account_holder')->nullable();
             $table->string('account_number')->nullable();
             $table->string('bank')->nullable();
-            $table->foreignId('investor_id')->constrained('investors')->onDelete('cascade');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->enum('status', ['on_sale', 'completed', 'upcoming']);
@@ -97,6 +96,13 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('project_investor', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
+            $table->foreignId('investor_id')->constrained('investors')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -104,6 +110,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('project_investor');
         Schema::dropIfExists('transactions');
         Schema::dropIfExists('plots');
         Schema::dropIfExists('zones');

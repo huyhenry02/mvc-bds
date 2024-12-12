@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "project_id": 1,
+        "investor_id": 1
+    },
+    {
+        "id": 2,
+        "project_id": 1,
+        "investor_id": 2
+    },
+    {
+        "id": 3,
+        "project_id": 1,
+        "investor_id": 3
+    },
+    {
+        "id": 4,
+        "project_id": 2,
+        "investor_id": 1
+    },
+    {
+        "id": 5,
+        "project_id": 2,
+        "investor_id": 2
+    },
+    {
+        "id": 6,
+        "project_id": 2,
+        "investor_id": 3
+    }
+]

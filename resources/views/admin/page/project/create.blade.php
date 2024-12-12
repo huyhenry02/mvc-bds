@@ -103,13 +103,26 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="investor_id">Chủ đầu tư <span class="text-danger">*</span></label>
-                                    <select class="form-control" id="investor_id" name="investor_id" required>
-                                        <option value="">-- Chọn chủ đầu tư --</option>
-                                        @foreach($investors as $investor)
-                                            <option value="{{ $investor->id }}">{{ $investor->full_name ?? '' }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="hidden" name="investor_ids[]" id="investorIdsInput">
+                                    <label for="investor_id">Nhà đầu tư <span class="text-danger">*</span></label>
+                                    <div class="dropdown" style="margin-right: 5px">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="projectDropdown"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            Chọn nhà đầu tư
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="investorDropdown">
+                                            <ul id="investorList" class="list-unstyled mt-2">
+                                                @foreach( $investors as $investor )
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="{{ $investor->id }}"/>
+                                                            <label class="form-check-label">{{ $investor->full_name ?? '' }}</label>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -169,6 +182,24 @@
                         });
                     })
                     .catch(error => console.error('Error fetching districts:', error));
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const investorList = document.querySelectorAll('#investorList .form-check-input');
+            const investorIdsInput = document.getElementById('investorIdsInput');
+
+            investorList.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    updateInvestorIds();
+                });
+            });
+
+            function updateInvestorIds() {
+                console.log(investorList);
+                const selectedIds = Array.from(investorList)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                investorIdsInput.value = selectedIds.join(',');
             }
         });
         function previewImage(event, previewId) {

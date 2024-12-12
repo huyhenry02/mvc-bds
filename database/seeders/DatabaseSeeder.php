@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             InvestorsSeeder::class,
             ProjectsSeeder::class,
             ZonesSeeder::class,
-            PlotsSeeder::class
+            PlotsSeeder::class,
+            ProjectInvestorSeeder::class,
         ]);
     }
 }

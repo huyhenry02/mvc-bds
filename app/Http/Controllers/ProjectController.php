@@ -66,8 +66,16 @@ class ProjectController extends Controller
     public function searchProjects(Request $request): View|Factory|Application
     {
         $query = $request->input('query');
+        $status = $request->input('status');
 
-        $projects = Project::where('name', 'like', '%' . $query . '%')->get();
+        $projects = Project::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                $queryBuilder->where('name', 'like', '%' . $query . '%');
+            })
+            ->when($status, function ($queryBuilder) use ($status) {
+                $queryBuilder->where('status', $status);
+            })
+            ->get();
 
         return view('admin.page.project.search-results', compact('projects'));
     }
@@ -77,8 +85,11 @@ class ProjectController extends Controller
         DB::beginTransaction();
         try {
             $project = new Project();
-            $project->fill($request->all());
+            $input = $request->all();
+            $investor_ids_array = explode(',', $input['investor_ids'][0]);
+            $project->fill($input);
             $project->save();
+            $project->investors()->attach($investor_ids_array);
             if ($request->hasFile('qr_code')) {
                 $project->qr_code = $this->handleUploadFile($request->file('qr_code'), $project, 'qr_code');
             }
@@ -98,7 +109,11 @@ class ProjectController extends Controller
     {
         DB::beginTransaction();
         try {
-            $project->fill($request->all());
+            $input = $request->all();
+            $investor_ids_array = explode(',', $input['investor_ids'][0]);
+            $project->fill($input);
+            $project->save();
+            $project->investors()->sync($investor_ids_array);
             if ($request->hasFile('qr_code')) {
                 $project->qr_code = $this->handleUploadFile($request->file('qr_code'), $project, 'qr_code');
             }

@@ -3,8 +3,13 @@
     <tr>
         <td>{{ $key + 1 }}</td>
         <td>{{ $project->name }}</td>
-        <td>{{ $project->zones()->count() }}</td>
+        <td class="text-center">{{ $project->zones()->count() }}</td>
         <td>
+            @foreach( $project->investors as $investor)
+                - {{ $investor->full_name }} <br/>
+            @endforeach
+        </td>
+        <td class="text-center">
             @switch( $project->status )
                 @case( Project::STATUS_ON_SALE )
                     <span class="badge bg-success">Đang bán</span>

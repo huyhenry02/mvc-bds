@@ -2,7 +2,7 @@
 @section('content')
     <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
         <div>
-            <h3 class="fw-bold mb-3">Danh sách Chủ đầu tư</h3>
+            <h3 class="fw-bold mb-3">Danh sách Nhà đầu tư</h3>
             <div class="position-relative w-100">
                 <label>
                     <input
@@ -33,7 +33,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($investors as $key => $investor)
+                    @foreach( $investors as $key => $investor )
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $investor->full_name }}</td>

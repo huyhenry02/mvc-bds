@@ -28,7 +28,6 @@ class ProjectsSeeder extends Seeder
                 'account_holder' => $item->account_holder,
                 'account_number' => $item->account_number,
                 'bank' => $item->bank,
-                'investor_id' => $item->investor_id,
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
                 'status' => $item->status,

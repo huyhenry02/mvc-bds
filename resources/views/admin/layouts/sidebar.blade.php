@@ -107,19 +107,19 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                     aria-expanded="false"
                 >
                     <i class="fas fa-bars"></i>
-                    <p>Quản lý chủ đầu tư</p>
+                    <p>Quản lý nhà đầu tư</p>
                     <span class="caret"></span>
                 </a>
                 <div class="collapse {{ $isActiveInvestor ? 'show' : '' }}" id="investor">
                     <ul class="nav nav-collapse">
                         <li class="{{ request()->routeIs('investor.showIndex') ? 'active' : '' }}">
                             <a href="{{ route('investor.showIndex') }}">
-                                <span class="sub-item">Danh sách chủ đầu tư</span>
+                                <span class="sub-item">Danh sách nhà đầu tư</span>
                             </a>
                         </li>
                         <li class="{{ request()->routeIs('investor.showCreate') ? 'active' : '' }}">
                             <a href="{{ route('investor.showCreate') }}">
-                                <span class="sub-item">Thêm mới chủ đầu tư</span>
+                                <span class="sub-item">Thêm mới nhà đầu tư</span>
                             </a>
                         </li>
                     </ul>

@@ -24,6 +24,12 @@
                         <option value="{{ $zone->id }}">{{ $zone->name }}</option>
                     @endforeach
                 </select>
+                <select class="form-control" id="status" name="status">
+                    <option value="">-- Chọn trạng thái --</option>
+                    <option value="empty">Trống</option>
+                    <option value="deposited">Đã đặt cọc</option>
+                    <option value="sold">Đã bán</option>
+                </select>
             </div>
         </div>
         <div class="ms-md-auto py-2 py-md-0">
@@ -87,15 +93,16 @@
             }
         }
         $(document).ready(function () {
-            $('#search-input, #project_id, #zone_id').on('change keyup', function () {
+            $('#search-input, #project_id, #zone_id, #status').on('change keyup', function () {
                 var query = $('#search-input').val();
                 var project_id = $('#project_id').val();
                 var zone_id = $('#zone_id').val();
+                var status = $('#status').val();
 
                 $.ajax({
                     url: '{{ route('admin.searchPlots') }}',
                     method: 'GET',
-                    data: { query: query, project_id: project_id, zone_id: zone_id },
+                    data: { query: query, project_id: project_id, zone_id: zone_id, status: status },
                     success: function (response) {
                         $('#plot-table tbody').html(response);
                     },

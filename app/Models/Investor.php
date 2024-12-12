@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Investor extends Model
 {
@@ -15,8 +16,13 @@ class Investor extends Model
         'description',
     ];
 
-    public function projects(): HasMany
+    public function projectInvestors(): HasMany
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(ProjectInvestor::class);
+    }
+
+    public function projects(): BelongsToMany
+    {
+        return $this->belongsToMany(Project::class, 'project_investor', 'investor_id', 'project_id');
     }
 }
