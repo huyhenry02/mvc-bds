@@ -13,31 +13,29 @@ return new class extends Migration
     {
         Schema::create('investors', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('email')->unique();
-            $table->string('phone_number')->nullable();
+            $table->string('full_name',100);
+            $table->string('email',100)->unique();
+            $table->string('phone_number',15)->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
 
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name',45);
             $table->text('description')->nullable();
             $table->timestamps();
         });
 
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code');
+            $table->string('name', 100);
             $table->timestamps();
         });
 
         Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code');
+            $table->string('name',100);
             $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
             $table->timestamps();
         });
@@ -45,14 +43,14 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->string('name');
+            $table->string('name',100);
             $table->text('description')->nullable();
             $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
             $table->foreignId('district_id')->constrained('districts')->onDelete('cascade');
             $table->string('specific_address')->nullable();
-            $table->string('account_holder')->nullable();
-            $table->string('account_number')->nullable();
-            $table->string('bank')->nullable();
+            $table->string('account_holder',50)->nullable();
+            $table->string('account_number',100)->nullable();
+            $table->string('bank',50)->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->enum('status', ['on_sale', 'completed', 'upcoming']);
@@ -63,8 +61,8 @@ return new class extends Migration
 
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->nullable();
-            $table->string('name');
+            $table->string('code',36)->nullable();
+            $table->string('name',100);
             $table->text('description')->nullable();
             $table->foreignId('project_id')->constrained('projects')->onDelete('cascade');
             $table->timestamps();
@@ -77,7 +75,7 @@ return new class extends Migration
             $table->integer('size');
             $table->bigInteger('price');
             $table->bigInteger('deposit');
-            $table->string('specific_address')->nullable();
+            $table->string('specific_address',255)->nullable();
             $table->enum('status', ['empty', 'deposited', 'sold']);
             $table->text('description')->nullable();
             $table->string('main_image')->nullable();

@@ -20,7 +20,6 @@ class CitiesSeeder extends Seeder
             $cities[] = [
                 'id' => $row[0],
                 'name' => $row[1],
-                'code' => $row[2],
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

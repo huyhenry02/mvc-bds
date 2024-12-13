@@ -14,6 +14,9 @@ $routesProject = [
     'project.showIndex',
     'project.showCreate',
     'project.showUpdate',
+    'investor.showIndex',
+    'investor.showCreate',
+    'investor.showUpdate',
 ];
 
 $routesZone = [
@@ -73,18 +76,14 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                     </ul>
                 </div>
             </li>
-            <li class="nav-item {{ $isActiveProject ? 'active' : '' }}">
-                <a
-                    data-bs-toggle="collapse"
-                    href="#project"
-                    class="collapsed"
-                    aria-expanded="false"
-                >
+
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#submenu">
                     <i class="fas fa-bars"></i>
                     <p>Quản lý dự án</p>
                     <span class="caret"></span>
                 </a>
-                <div class="collapse {{ $isActiveProject ? 'show' : '' }}" id="project">
+                <div class="collapse  {{ $isActiveProject ? 'show' : '' }}" id="submenu">
                     <ul class="nav nav-collapse">
                         <li class="{{ request()->routeIs('project.showIndex') ? 'active' : '' }}">
                             <a href="{{ route('project.showIndex') }}">
@@ -96,31 +95,25 @@ $isActiveReport = collect($routesReport)->contains(fn($route) => request()->rout
                                 <span class="sub-item">Thêm mới dự án</span>
                             </a>
                         </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item {{ $isActiveInvestor ? 'active' : '' }}">
-                <a
-                    data-bs-toggle="collapse"
-                    href="#investor"
-                    class="collapsed"
-                    aria-expanded="false"
-                >
-                    <i class="fas fa-bars"></i>
-                    <p>Quản lý nhà đầu tư</p>
-                    <span class="caret"></span>
-                </a>
-                <div class="collapse {{ $isActiveInvestor ? 'show' : '' }}" id="investor">
-                    <ul class="nav nav-collapse">
-                        <li class="{{ request()->routeIs('investor.showIndex') ? 'active' : '' }}">
-                            <a href="{{ route('investor.showIndex') }}">
-                                <span class="sub-item">Danh sách nhà đầu tư</span>
+                        <li class="{{ request()->routeIs(['investor.showIndex', 'investor.showCreate']) ? 'active' : '' }}">
+                            <a data-bs-toggle="collapse" href="#subnav1">
+                                <span class="sub-item">Danh mục nhà đầu tư</span>
+                                <span class="caret"></span>
                             </a>
-                        </li>
-                        <li class="{{ request()->routeIs('investor.showCreate') ? 'active' : '' }}">
-                            <a href="{{ route('investor.showCreate') }}">
-                                <span class="sub-item">Thêm mới nhà đầu tư</span>
-                            </a>
+                            <div class="collapse  {{ $routesInvestor ? 'show' : '' }}" id="subnav1">
+                                <ul class="nav nav-collapse subnav">
+                                    <li class="{{ request()->routeIs('investor.showIndex') ? 'active' : '' }}">
+                                        <a href="{{ route('investor.showIndex') }}">
+                                            <span class="sub-item">Danh sách nhà đầu tư</span>
+                                        </a>
+                                    </li>
+                                    <li class="{{ request()->routeIs('investor.showCreate') ? 'active' : '' }}">
+                                        <a href="{{ route('investor.showCreate') }}">
+                                            <span class="sub-item">Thêm mới nhà đầu tư</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -42,8 +42,8 @@
                     <thead class="thead-light">
                     <tr>
                         <th scope="col" width="10%">STT</th>
-                        <th scope="col">Tên phân khu</th>
                         <th scope="col">Khu đất</th>
+                        <th scope="col">Tên phân khu</th>
                         <th scope="col">Dự án</th>
                         <th scope="col">Tình trạng</th>
                         <th class="text-center" scope="col" width="10%">Hành động</th>

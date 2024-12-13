@@ -20,7 +20,6 @@ class DistrictsSeeder extends Seeder
             $districts[] = [
                 'id' => $row[0],
                 'name' => $row[1],
-                'code' => $row[2],
                 'city_id' => $row[3],
                 'created_at' => now(),
                 'updated_at' => now(),
