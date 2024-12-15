@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Plot extends Model
@@ -24,6 +25,7 @@ class Plot extends Model
         'sub_image_1',
         'sub_image_2',
         'sub_image_3',
+        'checked_deposit',
     ];
 
     public function zone(): BelongsTo

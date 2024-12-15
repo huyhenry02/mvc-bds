@@ -39,6 +39,13 @@
                 class="form-control"
                 id="end_date"
             />
+            <select class="form-control" id="search_status" name="status">
+                <option value="">-- Chọn Tình trạng --</option>
+                <option value="pending">Chờ xác nhận</option>
+                <option value="success">Giao dịch thành công</option>
+                <option value="reject">Giao dịch thất bại</option>
+
+            </select>
             <button class="btn btn-info ms-2"><i class="fas fa-search"></i></button>
         </div>
         <div class="col-3">
@@ -93,6 +100,8 @@
                     return;
                 }
 
+                const status = $('#search_status').val();
+
                 $.ajax({
                     url: '{{ route('report.showDataTransaction') }}',
                     method: 'POST',
@@ -101,6 +110,7 @@
                         projects: selectedProjects,
                         start_date: startDate,
                         end_date: endDate,
+                        status: status
                     },
                     success: function (response) {
                         let rows = '';
@@ -188,6 +198,7 @@
                     selectedProjects.push($(this).val());
                 });
 
+                console.log(111);
                 const startDate = $('#start_date').val();
                 if (!startDate) {
                     alert('Vui lòng chọn ngày bắt đầu');
@@ -198,10 +209,12 @@
                     alert('Vui lòng chọn ngày kết thúc');
                     return;
                 }
+                const status = $('#search_status').val();
                 const queryParams = new URLSearchParams({
                     start_date: startDate,
                     end_date: endDate,
-                    projects: selectedProjects.join(',')
+                    projects: selectedProjects.join(','),
+                    status: status
                 });
                 window.location.href = `{{ route('report.showPreviewExport') }}?${queryParams.toString()}`;
             });

@@ -81,7 +81,7 @@
                                                                                     m²
                                                                                 </li>
                                                                             </ul>
-                                                                            @if( $plot->status === Plot::STATUS_DEPOSITED)
+                                                                            @if( $plot->checked_deposit === 1)
                                                                                 <button
                                                                                     class="btn btn-secondary w-100 view-details"
                                                                                     data-bs-toggle="modal"
@@ -97,6 +97,7 @@
                                                                                     data-sub_image_2="{{ $plot->sub_image_2 }}"
                                                                                     data-sub_image_3="{{ $plot->sub_image_3 }}"
                                                                                     data-plot_id="{{ $plot->id }}"
+                                                                                    data-checked_deposit="{{ $plot->checked_deposit }}"
                                                                                     data-bs-target="#detailModal">
                                                                                     Xem chi tiết
                                                                                 </button>
@@ -130,6 +131,7 @@
                                                                                         data-sub_image_2="{{ $plot->sub_image_2 }}"
                                                                                         data-sub_image_3="{{ $plot->sub_image_3 }}"
                                                                                         data-plot_id="{{ $plot->id }}"
+                                                                                        data-checked_deposit="{{ $plot->checked_deposit }}"
                                                                                         data-bs-target="#detailModal">
                                                                                         Xem chi tiết
                                                                                     </button>
@@ -177,7 +179,7 @@
                                                                 m2
                                                             </li>
                                                         </ul>
-                                                        @if( $plot->status === Plot::STATUS_DEPOSITED)
+                                                        @if( $plot->checked_deposit === 1)
                                                             <button
                                                                 class="btn btn-secondary w-100 view-details"
                                                                 data-bs-toggle="modal"
@@ -193,6 +195,7 @@
                                                                 data-sub_image_2="{{ $plot->sub_image_2 }}"
                                                                 data-sub_image_3="{{ $plot->sub_image_3 }}"
                                                                 data-plot_id="{{ $plot->id }}"
+                                                                data-checked_deposit="{{ $plot->checked_deposit }}"
                                                                 data-bs-target="#detailModal">Xem
                                                                 chi tiết
                                                             </button>
@@ -224,6 +227,7 @@
                                                                     data-sub_image_2="{{ $plot->sub_image_2 }}"
                                                                     data-sub_image_3="{{ $plot->sub_image_3 }}"
                                                                     data-plot_id="{{ $plot->id }}"
+                                                                    data-checked_deposit="{{ $plot->checked_deposit }}"
                                                                     data-bs-target="#detailModal">Xem
                                                                     chi tiết
                                                                 </button>
@@ -299,6 +303,7 @@
                 const sub_image_2 = this.getAttribute('data-sub_image_2');
                 const sub_image_3 = this.getAttribute('data-sub_image_3');
                 const plot_id = this.getAttribute('data-plot_id');
+                const checked_deposit = this.getAttribute('data-checked_deposit');
 
                 const priceFormatted = new Intl.NumberFormat('vi-VN', {
                     style: 'currency',
@@ -339,7 +344,7 @@
 
                 statusElement.innerHTML = statusHTML;
                 const depositButton = document.querySelector('#detailModal .view-deposits');
-                if (status === 'deposited') {
+                if (checked_deposit == 1) {
                     depositButton.style.display = 'none';
                 }
 

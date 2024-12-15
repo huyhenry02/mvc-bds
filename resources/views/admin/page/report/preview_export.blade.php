@@ -7,6 +7,7 @@
             <input type="hidden" name="start_date" value="{{ $start_date }}">
             <input type="hidden" name="end_date" value="{{ $end_date }}">
             <input type="hidden" name="projects" value="{{ implode(',', $projects) }}">
+            <input type="hidden" name="status" value="{{ $status }}">
         </form>
 
         <a class="btn btn-info" href="#" onclick="document.getElementById('generatePdfForm').submit();">

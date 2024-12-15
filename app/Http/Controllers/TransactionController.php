@@ -45,8 +45,10 @@ class TransactionController extends Controller
 
             if ($input['status'] === Transaction::STATUS_SUCCESS) {
                 $transaction->plot->status = Plot::STATUS_DEPOSITED;
-                $transaction->plot->save();
+            } else {
+                $transaction->plot->checked_deposit = 0;
             }
+            $transaction->plot->save();
 
             return redirect()->back()->with('success', 'Cập nhật trạng thái giao dịch thành công');
         } catch (\Exception $e) {

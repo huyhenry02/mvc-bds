@@ -77,6 +77,7 @@ class ReportController extends Controller
             'data' => $data,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
+            'status' => $request->status,
             'projects' => $request->projects ?? [],
         ]);
     }
@@ -104,6 +105,7 @@ class ReportController extends Controller
             'title' => 'Laravel PDF Export',
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
+            'status' => $request->status,
             'data' => $data,
         ];
         return Pdf::loadView('admin.page.report.template_export', $dataView)->download('Báo cáo giao dịch.pdf');
@@ -202,6 +204,10 @@ class ReportController extends Controller
 
         if ($request->has('end_date') && !empty($request->end_date)) {
             $query->where('transactions.transaction_date', '<=', $request->end_date);
+        }
+
+        if ($request->has('status') && !empty($request->status)) {
+            $query->where('transactions.status', $request->status);
         }
 
         $transactions = $query->get();

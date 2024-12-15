@@ -102,6 +102,10 @@ class IndexCustomerController extends Controller
             $input['transaction_date'] = now();
             $transaction->fill($input);
             $transaction->save();
+
+            $plot = $transaction->plot;
+            $plot->checked_deposit = 1;
+            $plot->save();
             DB::commit();
             return redirect()->route('customer.showTransaction')->with('success', 'Gửi yêu cầu thành công');
         }catch (\Exception $e) {
